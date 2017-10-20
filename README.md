@@ -3,5 +3,8 @@
 Install:
 ```npm install```
 
-Run:
+Run app:
 ```npm start```
+
+Run unit tests:
+```npm test```

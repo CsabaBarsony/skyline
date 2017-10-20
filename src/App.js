@@ -9,6 +9,7 @@ import {
   Grid,
   Row,
   Col,
+  Button,
 } from 'react-bootstrap/lib';
 import {
   BrowserRouter as Router,
@@ -21,10 +22,11 @@ import FormPage from './pages/FormPage';
 class App extends Component {
   render() {
     return (
-      <div className="app container">
+      <div className="app">
         <Router>
+
           <Grid>
-            <Row>
+            <Row className="app-header">
               <Navbar inverse collapseOnSelect>
                 <Navbar.Header>
                   <Navbar.Brand>
@@ -34,20 +36,24 @@ class App extends Component {
                 </Navbar.Header>
                 <Navbar.Collapse>
                   <Nav pullRight>
-                    <NavItem eventKey={2} href="#">Log out</NavItem>
-                    <NavDropdown eventKey={3} title="Csaba" id="basic-nav-dropdown">
-                      <MenuItem eventKey={3.1}>Options</MenuItem>
-                      <MenuItem eventKey={3.2}>Another action</MenuItem>
+                    <NavItem href="#">Log out</NavItem>
+                    <NavDropdown title="Csaba" id="basic-nav-dropdown">
+                      <MenuItem>Options</MenuItem>
+                      <MenuItem>Another action</MenuItem>
                     </NavDropdown>
                   </Nav>
                 </Navbar.Collapse>
               </Navbar>
             </Row>
-            <Row>
+            <Row className="container">
               <Col sm={3} md={3} lg={3}>
-                <ul>
-                  <li><Link to="/">Data List</Link></li>
-                  <li><Link to="/form">Form</Link></li>
+                <ul className="sidebar nav nav-pills nav-stacked">
+                  <li role="presentation">
+                    <Link to="/">Data List Page</Link>
+                  </li>
+                  <li role="presentation">
+                    <Link to="/form">Form List</Link>
+                  </li>
                 </ul>
               </Col>
               <Col sm={9} md={9} lg={9}>
@@ -56,6 +62,7 @@ class App extends Component {
               </Col>
             </Row>
           </Grid>
+
         </Router>
       </div>
     );

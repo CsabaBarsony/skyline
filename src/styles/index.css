@@ -11,3 +11,11 @@ h2 {
 form {
   max-width: 500px;
 }
+
+.app-header nav {
+  margin: 0;
+}
+
+.sidebar li {
+  margin-top: 20px;
+}
