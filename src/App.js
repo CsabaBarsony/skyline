@@ -20,11 +20,33 @@ import DataListPage from './pages/DataListPage';
 import FormPage from './pages/FormPage';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      showSidebar: true,
+    };
+  }
+
+  toggleSidebar() {
+    this.setState({ showSidebar: !this.state.showSidebar });
+  }
+
   render() {
+    const sidebar = <Col sm={3} md={3} lg={3}>
+      <ul className="sidebar nav nav-pills nav-stacked">
+        <li role="presentation">
+          <Link to="/">Data List Page</Link>
+        </li>
+        <li role="presentation">
+          <Link to="/form">Form List</Link>
+        </li>
+      </ul>
+    </Col>;
+
     return (
       <div className="app">
         <Router>
-
           <Grid>
             <Row className="app-header">
               <Navbar inverse collapseOnSelect>
@@ -46,16 +68,9 @@ class App extends Component {
               </Navbar>
             </Row>
             <Row className="container">
-              <Col sm={3} md={3} lg={3}>
-                <ul className="sidebar nav nav-pills nav-stacked">
-                  <li role="presentation">
-                    <Link to="/">Data List Page</Link>
-                  </li>
-                  <li role="presentation">
-                    <Link to="/form">Form List</Link>
-                  </li>
-                </ul>
-              </Col>
+              {/*TODO: style button to use for sidebar toggling*/}
+              {/*<Button className="sidebarToggle" bsStyle="primary" onClick={() => this.toggleSidebar()}>S</Button>*/}
+              {this.state.showSidebar && sidebar}
               <Col sm={9} md={9} lg={9}>
                 <Route exact path="/" component={DataListPage}/>
                 <Route path="/form" component={FormPage}/>
